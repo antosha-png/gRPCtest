@@ -9,19 +9,9 @@ service NoiseData {
 }
 
 message NoiseRequest {
-  oneof payload {
-    MetaData meta = 1;
-    FileChunk chunk = 2;
-  }
-}
-
-message MetaData {
   float value1 = 1;
   float value2 = 2;
-}
-
-message FileChunk {
-  bytes content = 1;
+  bytes csv_content = 3;
 }
 
 message NoiseResponse {
