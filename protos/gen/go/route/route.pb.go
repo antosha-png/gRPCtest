@@ -22,12 +22,10 @@ const (
 )
 
 type NoiseRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Payload:
-	//
-	//	*NoiseRequest_Meta
-	//	*NoiseRequest_Chunk
-	Payload       isNoiseRequest_Payload `protobuf_oneof:"payload"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value1        float32                `protobuf:"fixed32,1,opt,name=value1,proto3" json:"value1,omitempty"`
+	Value2        float32                `protobuf:"fixed32,2,opt,name=value2,proto3" json:"value2,omitempty"`
+	CsvContent    []byte                 `protobuf:"bytes,3,opt,name=csv_content,json=csvContent,proto3" json:"csv_content,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,139 +60,23 @@ func (*NoiseRequest) Descriptor() ([]byte, []int) {
 	return file_route_route_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *NoiseRequest) GetPayload() isNoiseRequest_Payload {
-	if x != nil {
-		return x.Payload
-	}
-	return nil
-}
-
-func (x *NoiseRequest) GetMeta() *MetaData {
-	if x != nil {
-		if x, ok := x.Payload.(*NoiseRequest_Meta); ok {
-			return x.Meta
-		}
-	}
-	return nil
-}
-
-func (x *NoiseRequest) GetChunk() *FileChunk {
-	if x != nil {
-		if x, ok := x.Payload.(*NoiseRequest_Chunk); ok {
-			return x.Chunk
-		}
-	}
-	return nil
-}
-
-type isNoiseRequest_Payload interface {
-	isNoiseRequest_Payload()
-}
-
-type NoiseRequest_Meta struct {
-	Meta *MetaData `protobuf:"bytes,1,opt,name=meta,proto3,oneof"`
-}
-
-type NoiseRequest_Chunk struct {
-	Chunk *FileChunk `protobuf:"bytes,2,opt,name=chunk,proto3,oneof"`
-}
-
-func (*NoiseRequest_Meta) isNoiseRequest_Payload() {}
-
-func (*NoiseRequest_Chunk) isNoiseRequest_Payload() {}
-
-type MetaData struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value1        float32                `protobuf:"fixed32,1,opt,name=value1,proto3" json:"value1,omitempty"`
-	Value2        float32                `protobuf:"fixed32,2,opt,name=value2,proto3" json:"value2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MetaData) Reset() {
-	*x = MetaData{}
-	mi := &file_route_route_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MetaData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MetaData) ProtoMessage() {}
-
-func (x *MetaData) ProtoReflect() protoreflect.Message {
-	mi := &file_route_route_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MetaData.ProtoReflect.Descriptor instead.
-func (*MetaData) Descriptor() ([]byte, []int) {
-	return file_route_route_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *MetaData) GetValue1() float32 {
+func (x *NoiseRequest) GetValue1() float32 {
 	if x != nil {
 		return x.Value1
 	}
 	return 0
 }
 
-func (x *MetaData) GetValue2() float32 {
+func (x *NoiseRequest) GetValue2() float32 {
 	if x != nil {
 		return x.Value2
 	}
 	return 0
 }
 
-type FileChunk struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Content       []byte                 `protobuf:"bytes,1,opt,name=content,proto3" json:"content,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FileChunk) Reset() {
-	*x = FileChunk{}
-	mi := &file_route_route_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FileChunk) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FileChunk) ProtoMessage() {}
-
-func (x *FileChunk) ProtoReflect() protoreflect.Message {
-	mi := &file_route_route_proto_msgTypes[2]
+func (x *NoiseRequest) GetCsvContent() []byte {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FileChunk.ProtoReflect.Descriptor instead.
-func (*FileChunk) Descriptor() ([]byte, []int) {
-	return file_route_route_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *FileChunk) GetContent() []byte {
-	if x != nil {
-		return x.Content
+		return x.CsvContent
 	}
 	return nil
 }
@@ -208,7 +90,7 @@ type NoiseResponse struct {
 
 func (x *NoiseResponse) Reset() {
 	*x = NoiseResponse{}
-	mi := &file_route_route_proto_msgTypes[3]
+	mi := &file_route_route_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -220,7 +102,7 @@ func (x *NoiseResponse) String() string {
 func (*NoiseResponse) ProtoMessage() {}
 
 func (x *NoiseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_route_route_proto_msgTypes[3]
+	mi := &file_route_route_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -233,7 +115,7 @@ func (x *NoiseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NoiseResponse.ProtoReflect.Descriptor instead.
 func (*NoiseResponse) Descriptor() ([]byte, []int) {
-	return file_route_route_proto_rawDescGZIP(), []int{3}
+	return file_route_route_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *NoiseResponse) GetStatus() bool {
@@ -247,16 +129,12 @@ var File_route_route_proto protoreflect.FileDescriptor
 
 const file_route_route_proto_rawDesc = "" +
 	"\n" +
-	"\x11route/route.proto\x12\x05route\"j\n" +
-	"\fNoiseRequest\x12%\n" +
-	"\x04meta\x18\x01 \x01(\v2\x0f.route.MetaDataH\x00R\x04meta\x12(\n" +
-	"\x05chunk\x18\x02 \x01(\v2\x10.route.FileChunkH\x00R\x05chunkB\t\n" +
-	"\apayload\":\n" +
-	"\bMetaData\x12\x16\n" +
+	"\x11route/route.proto\x12\x05route\"_\n" +
+	"\fNoiseRequest\x12\x16\n" +
 	"\x06value1\x18\x01 \x01(\x02R\x06value1\x12\x16\n" +
-	"\x06value2\x18\x02 \x01(\x02R\x06value2\"%\n" +
-	"\tFileChunk\x12\x18\n" +
-	"\acontent\x18\x01 \x01(\fR\acontent\"'\n" +
+	"\x06value2\x18\x02 \x01(\x02R\x06value2\x12\x1f\n" +
+	"\vcsv_content\x18\x03 \x01(\fR\n" +
+	"csvContent\"'\n" +
 	"\rNoiseResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\bR\x06status2D\n" +
 	"\tNoiseData\x127\n" +
@@ -275,23 +153,19 @@ func file_route_route_proto_rawDescGZIP() []byte {
 	return file_route_route_proto_rawDescData
 }
 
-var file_route_route_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_route_route_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_route_route_proto_goTypes = []any{
 	(*NoiseRequest)(nil),  // 0: route.NoiseRequest
-	(*MetaData)(nil),      // 1: route.MetaData
-	(*FileChunk)(nil),     // 2: route.FileChunk
-	(*NoiseResponse)(nil), // 3: route.NoiseResponse
+	(*NoiseResponse)(nil), // 1: route.NoiseResponse
 }
 var file_route_route_proto_depIdxs = []int32{
-	1, // 0: route.NoiseRequest.meta:type_name -> route.MetaData
-	2, // 1: route.NoiseRequest.chunk:type_name -> route.FileChunk
-	0, // 2: route.NoiseData.UploadData:input_type -> route.NoiseRequest
-	3, // 3: route.NoiseData.UploadData:output_type -> route.NoiseResponse
-	3, // [3:4] is the sub-list for method output_type
-	2, // [2:3] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0, // 0: route.NoiseData.UploadData:input_type -> route.NoiseRequest
+	1, // 1: route.NoiseData.UploadData:output_type -> route.NoiseResponse
+	1, // [1:2] is the sub-list for method output_type
+	0, // [0:1] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_route_route_proto_init() }
@@ -299,17 +173,13 @@ func file_route_route_proto_init() {
 	if File_route_route_proto != nil {
 		return
 	}
-	file_route_route_proto_msgTypes[0].OneofWrappers = []any{
-		(*NoiseRequest_Meta)(nil),
-		(*NoiseRequest_Chunk)(nil),
-	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_route_route_proto_rawDesc), len(file_route_route_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
