@@ -1,4 +1,4 @@
-module gPRCtest
+module github.com/antosha-png/gRPCtest
 
 go 1.24
 
