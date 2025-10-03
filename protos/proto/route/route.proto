@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package route;
+
+option go_package = "nva.route.v1;route1";
+
+service NoiseData {
+  rpc UploadData (NoiseRequest) returns (NoiseResponse);
+}
+
+message NoiseRequest {
+  oneof payload {
+    MetaData meta = 1;
+    FileChunk chunk = 2;
+  }
+}
+
+message MetaData {
+  float value1 = 1;
+  float value2 = 2;
+}
+
+message FileChunk {
+  bytes content = 1;
+}
+
+message NoiseResponse {
+  bool status = 1;
+}
