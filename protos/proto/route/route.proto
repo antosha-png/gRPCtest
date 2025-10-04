@@ -11,7 +11,6 @@ service NoiseData {
 message NoiseRequest {
   float value1 = 1;
   float value2 = 2;
-  bytes csv_content = 3;
 }
 
 message NoiseResponse {

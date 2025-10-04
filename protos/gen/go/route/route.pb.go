@@ -25,7 +25,6 @@ type NoiseRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value1        float32                `protobuf:"fixed32,1,opt,name=value1,proto3" json:"value1,omitempty"`
 	Value2        float32                `protobuf:"fixed32,2,opt,name=value2,proto3" json:"value2,omitempty"`
-	CsvContent    []byte                 `protobuf:"bytes,3,opt,name=csv_content,json=csvContent,proto3" json:"csv_content,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -72,13 +71,6 @@ func (x *NoiseRequest) GetValue2() float32 {
 		return x.Value2
 	}
 	return 0
-}
-
-func (x *NoiseRequest) GetCsvContent() []byte {
-	if x != nil {
-		return x.CsvContent
-	}
-	return nil
 }
 
 type NoiseResponse struct {
@@ -129,12 +121,10 @@ var File_route_route_proto protoreflect.FileDescriptor
 
 const file_route_route_proto_rawDesc = "" +
 	"\n" +
-	"\x11route/route.proto\x12\x05route\"_\n" +
+	"\x11route/route.proto\x12\x05route\">\n" +
 	"\fNoiseRequest\x12\x16\n" +
 	"\x06value1\x18\x01 \x01(\x02R\x06value1\x12\x16\n" +
-	"\x06value2\x18\x02 \x01(\x02R\x06value2\x12\x1f\n" +
-	"\vcsv_content\x18\x03 \x01(\fR\n" +
-	"csvContent\"'\n" +
+	"\x06value2\x18\x02 \x01(\x02R\x06value2\"'\n" +
 	"\rNoiseResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\bR\x06status2D\n" +
 	"\tNoiseData\x127\n" +
